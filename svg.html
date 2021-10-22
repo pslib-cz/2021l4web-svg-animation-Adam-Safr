@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animace SVG</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: white;
+    }
+    h2 {
+        font-size: 42px;
+        text-align: center;
+    }
+    div {
+        max-width: 400px;
+        position: relative;
+        margin: 0 auto;
+    }
+    svg {
+        stroke: rgb(216, 216, 216);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-dasharray: 120;
+        stroke-dashoffset: 133;
+        transition: stroke-dasharray .6s ease 0s, stroke-dashoffset .7s ease .0s;
+        fill: #173753;
+    }
+    div:hover svg {
+        stroke-dasharray: 84;
+        stroke-dashoffset: 160;
+        transition: stroke-dasharray 0.6s ease 0.5s, stroke-dashoffset 0.7s, ease 0.7s  0.2s;
+        fill: rgba(235, 44, 89, 0.3);
+    }
+    div:hover::before {
+        opacity: 1;
+        transition: opacity 0.7s ease-out; 
+    }
+    div::before {
+        content: "";
+        width: 9.3%;
+        height: 43%;
+        border-radius: 30px;
+        background: rgb(216, 216, 216);
+        position: absolute;
+        left: calc(50% - (9.3%/2));
+        z-index: 2;
+        top: 25%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+</style>
+<body>
+    <h2>Hover me!</h2>
+    <div>
+        <svg viewBox="0 0 44 44">
+            <path d="M22,6 C31,6 38,13 38,22 C38,31 31,38 22,38 C13,38 6,31 6,22 C6,13 13,6 22,6 L22,28"></path>
+        </svg>
+    </div>
+</body>
+</html>
